@@ -33,12 +33,6 @@ export default defineConfig({
         {
           path: "/api/search",
         },
-        {
-          path: "llms-full.txt",
-        },
-        {
-          path: "llms.txt",
-        },
       ],
     }),
     react(),
