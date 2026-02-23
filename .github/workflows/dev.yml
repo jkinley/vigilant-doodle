@@ -24,7 +24,7 @@ jobs:
 
       - run: pnpm build
         env:
-          VITE_BASE_PATH: /previews/${{ github.sha }}
+          BASE_PATH: /previews/${{ github.sha }}/
 
       - name: Deploy to S3
         run: aws s3 sync dist/client s3://tss-deploy/previews/${{ github.sha }} --delete

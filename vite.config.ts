@@ -6,7 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 import mdx from "fumadocs-mdx/vite";
 
 export default defineConfig({
-  base: process.env.VITE_BASE_PATH || "/",
+  base: process.env.BASE_PATH || "/",
   server: {
     port: 3000,
   },
