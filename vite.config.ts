@@ -14,6 +14,7 @@ export default defineConfig({
     mdx(await import("./source.config")),
     tailwindcss(),
     tsConfigPaths({
+      base: process.env.VITE_BASE_PATH || "/",
       projects: ["./tsconfig.json"],
     }),
     tanstackStart({
