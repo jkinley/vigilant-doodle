@@ -1,0 +1,83 @@
+# Hello World
+
+
+
+Hey there! Fumadocs is the docs framework that also works on Tanstack Start!
+
+Heading [#heading]
+
+Hello World!
+
+<Cards>
+  <Card title="Learn more about Tanstack Start" href="https://tanstack.com/start" />
+
+  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
+</Cards>
+
+CodeBlock [#codeblock]
+
+```ts
+console.log('Hello World');
+```
+
+Table [#table]
+
+| Head                            | Description                         |
+| ------------------------------- | ----------------------------------- |
+| `hello`                         | Hello World                         |
+| very **important**              | Hey                                 |
+| *Surprisingly*                  | Fumadocs                            |
+| very long text that looks weird | hello world hello world hello world |
+
+
+# Test
+
+
+
+Hello World again!
+
+Installation [#installation]
+
+<CodeBlockTabs defaultValue="npm">
+  <CodeBlockTabsList>
+    <CodeBlockTabsTrigger value="npm">
+      npm
+    </CodeBlockTabsTrigger>
+
+    <CodeBlockTabsTrigger value="pnpm">
+      pnpm
+    </CodeBlockTabsTrigger>
+
+    <CodeBlockTabsTrigger value="yarn">
+      yarn
+    </CodeBlockTabsTrigger>
+
+    <CodeBlockTabsTrigger value="bun">
+      bun
+    </CodeBlockTabsTrigger>
+  </CodeBlockTabsList>
+
+  <CodeBlockTab value="npm">
+    ```bash
+    npm i fumadocs-core fumadocs-ui
+    ```
+  </CodeBlockTab>
+
+  <CodeBlockTab value="pnpm">
+    ```bash
+    pnpm add fumadocs-core fumadocs-ui
+    ```
+  </CodeBlockTab>
+
+  <CodeBlockTab value="yarn">
+    ```bash
+    yarn add fumadocs-core fumadocs-ui
+    ```
+  </CodeBlockTab>
+
+  <CodeBlockTab value="bun">
+    ```bash
+    bun add fumadocs-core fumadocs-ui
+    ```
+  </CodeBlockTab>
+</CodeBlockTabs>

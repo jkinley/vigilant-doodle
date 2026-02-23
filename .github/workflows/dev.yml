@@ -1,0 +1,41 @@
+name: Preview Deploy
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: latest
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - run: pnpm install
+
+      - run: pnpm build
+        env:
+          VITE_BASE_URL: /previews/${{ github.sha }}
+
+      - name: Deploy to S3
+        run: aws s3 sync dist/client s3://tss-deploy/previews/${{ github.sha }} --delete
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-west-1
+
+      - name: Invalidate CloudFront
+        run: aws cloudfront create-invalidation --distribution-id EMYLH2JOQ1GOT --paths "/previews/${{ github.sha }}/*"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-west-1
